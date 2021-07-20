@@ -30,10 +30,6 @@ const getNames = (arr) => {
     return join;
   });
   return newArray;
-  // let reverse = newArray.reduce( (newString, currentLetter) => {
-  //   return currentLetter + newString;
-  // }, '');
-  // return reverse;
 };
 
 /* ------------------------------------------------------------------------------------------------
