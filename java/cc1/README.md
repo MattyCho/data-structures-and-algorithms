@@ -5,4 +5,4 @@
 ### Code Challenge 1
 
 Whiteboard:
-![Whiteboard](./assets/cc1Whiteboard.png)
+![Whiteboard](/cc1/assets/cc1Whiteboard.png)
