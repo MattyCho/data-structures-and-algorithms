@@ -17,5 +17,27 @@ Big O:
 ### API
 3 Methods:
 1. insert() - takes in a value and returns nothing. This method will insert the value at the head of the list.
-2. includes() - takes in a search value and returns a boolean. This method will traverse through the list and return a true if the search value exists in the list. Otherwise it will return false.
+2. includes() - takes in a search value and returns boolean. This method will traverse through the list and return a true if the search value exists in the list. Otherwise, it will return false.
 3. toString() - No arguments and returns a String. Traverses through the list and will return the entirety of the list in a String. List always ends with "NULL"
+
+## Code Challenge 6
+### Challenge Summary
+Create 3 more methods for the LinkedList class.
+1. append() - takes in a target value and adds it the end of the list.
+2. insertBefore() - takes in a target value and a new value and will insert the new value **BEFORE** the target value in the list.
+3. insertAfter() - takes in a target value and a new value and will insert the new value **AFTER** the target value in the list.
+
+### Whiteboard Process
+I started by writing out the problem domain and understanding what each method will take in as an argument and what the final list should look like.
+All 3 methods would have the same basic layout:
+- create a new node with the new value.
+- traverse through the list.
+- insert new node at the correct location
+- reassign the next nodes for all affected nodes to maintain the proper list order.
+
+![whiteboard](/java/codechallenges/cc6whiteboard.png)
+
+### Approach & Efficiency
+Each method is dependent on the length of the list because it must traverse to the correct location to insert/append a node.
+Time = O(n)
+Space = O(1)
