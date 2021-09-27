@@ -3,7 +3,7 @@
 - Create a method that takes in a sorted array and a target value. If the array contains the target value, it returns the index at which that value is located. Otherwise it will return -1.
 
 ## Whiteboard Process
-![Whiteboard](./java/cc3/cc3Whiteboard.png)
+![](./java/cc3/cc3Whiteboard.png)
 
 ## Approach & Efficiency
 
