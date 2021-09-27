@@ -3,7 +3,7 @@
 - Create a method that takes in an array/value and returns the array with the value inserted in the middle.
 
 ## Whiteboard Process
-![Whiteboard](/cc2/cc2Whiteboard.png)
+![Whiteboard](/java/cc2/cc2Whiteboard.png)
 
 ## Approach & Efficiency
 - Middle index is found by dividing the length of the array by 2.
