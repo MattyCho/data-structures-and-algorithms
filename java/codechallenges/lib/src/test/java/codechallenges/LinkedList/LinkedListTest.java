@@ -4,7 +4,6 @@ import codechallenges.linkedlist.LinkedList;
 import org.junit.jupiter.api.Test;
 
 public class LinkedListTest {
-
   @Test void testLL() {
     LinkedList newLL = new LinkedList();
     newLL.insert(5);
@@ -32,5 +31,20 @@ public class LinkedListTest {
     System.out.println("insert 44 before 5:");
     newLL.insertBefore(5, 44);
     System.out.println(newLL.toString());
+  }
+
+  @Test void kthFromEndTest() {
+    LinkedList newLL = new LinkedList();
+    newLL.insert(5);
+    newLL.insert(4);
+    newLL.insert(3);
+    newLL.insert(2);
+    newLL.insert(1);
+    newLL.insert(0);
+    newLL.insert(74);
+
+    int k = 6;
+    System.out.println(newLL.toString());
+    System.out.println(k + " from the end = " + newLL.kthFromEnd(k));
   }
 }
