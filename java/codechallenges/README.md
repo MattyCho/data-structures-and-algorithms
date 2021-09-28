@@ -41,3 +41,21 @@ All 3 methods would have the same basic layout:
 Each method is dependent on the length of the list because it must traverse to the correct location to insert/append a node.
 Time = O(n)
 Space = O(1)
+
+## Code Challenge 7
+
+### Challenge Summary
+Create a method in the LinkedList class that takes in a integer, K, and returns the value of the node K spots
+from the end of the list.
+### Whiteboard Process
+Originally I was thinking about writing a method to reverse the linked list and then traverse through the list to
+the correct index.
+I ended up instead using a method that returns the size of the list as an int and then subtracting K to find the
+appropriate index.
+![whiteboard](/java/codechallenges/cc7whiteboard.png)
+
+### Approach & Efficiency
+Big O:
+Time = O(n)
+Space = O(1)
+KthFromEnd method requires the program to traverse through the list.

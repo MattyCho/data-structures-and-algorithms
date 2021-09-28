@@ -11,14 +11,13 @@ public class LinkedList {
 
   public boolean includes(int searchValue) {
     Node currentNode = this.head;
-    boolean hasValue = false;
     while (currentNode != null) {
       if (currentNode.value == searchValue) {
-        hasValue = true;
+        return true;
       }
       currentNode = currentNode.next;
     }
-    return hasValue;
+    return false;
   }
 
   @Override
@@ -67,5 +66,46 @@ public class LinkedList {
       }
       currentNode = currentNode.next;
     }
+  }
+
+//  public Node reverseList() {
+//    Node previousNode = null;
+//    Node currentNode = this.head;
+//    Node nextNode;
+//    while (currentNode != null) {
+//      nextNode = currentNode.next;
+//      currentNode.next = previousNode;
+//      previousNode = currentNode;
+//      currentNode = nextNode;
+//    }
+//    return previousNode;
+//  }
+
+  public int listSize() {
+    Node currentNode = this.head;
+    int listSize = 0;
+    while (currentNode != null) {
+      listSize++;
+      currentNode = currentNode.next;
+    }
+    return listSize;
+  }
+
+  public int kthFromEnd (int k) {
+    int listSize = this.listSize();
+    int index = listSize - 1 - k;
+    Node currentNode = this.head;
+    if (index < 0 ) {
+      throw new IllegalArgumentException("The index you are looking for is greater than the length of the list");
+    }
+    while (index >= 0) {
+      if (index == 0 ) {
+        return currentNode.value;
+      } else {
+        currentNode = currentNode.next;
+        index--;
+      }
+    }
+    return currentNode.value;
   }
 }
