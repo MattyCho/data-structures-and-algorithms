@@ -1,7 +1,5 @@
 package codechallenges.linkedlist;
 
-import java.io.IOException;
-
 public class LinkedList {
   Node head = null;
 
