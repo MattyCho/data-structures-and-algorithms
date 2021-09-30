@@ -3,6 +3,7 @@ package codechallenges.LinkedList;
 import codechallenges.linkedlist.LinkedList;
 import org.junit.jupiter.api.Test;
 
+import static codechallenges.linkedlist.LinkedList.reverseList;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LinkedListTest {
@@ -66,5 +67,17 @@ public class LinkedListTest {
     String output = newLL.toString();
 
     assertEquals("{ 1 } -> { 4 } -> { 2 } -> { 5 } -> { 3 } -> { 6 } -> { 7 } -> { 8 } -> NULL", output);
+  }
+
+  @Test void reverseListTest() {
+    LinkedList list1 = new LinkedList();
+    list1.insert(5);
+    list1.insert(4);
+    list1.insert(3);
+    list1.insert(2);
+    list1.insert(1);
+
+    String output = LinkedList.reverseList(list1).toString();
+    assertEquals("{ 5 } -> { 4 } -> { 3 } -> { 2 } -> { 1 } -> NULL", output, "Reverse List Method fails");
   }
 }

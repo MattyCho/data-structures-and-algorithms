@@ -72,19 +72,6 @@ public class LinkedList {
     }
   }
 
-//  public Node reverseList() {
-//    Node previousNode = null;
-//    Node currentNode = this.head;
-//    Node nextNode;
-//    while (currentNode != null) {
-//      nextNode = currentNode.next;
-//      currentNode.next = previousNode;
-//      previousNode = currentNode;
-//      currentNode = nextNode;
-//    }
-//    return previousNode;
-//  }
-
   public int listSize() {
     Node currentNode = this.head;
     int listSize = 0;
@@ -128,5 +115,18 @@ public class LinkedList {
       }
     }
     return newList;
+  }
+
+  public static LinkedList reverseList(LinkedList list) {
+    Node previousNode = null;
+    Node currentNode = list.head;
+    while (currentNode != null) {
+      Node nextNode = currentNode.next;
+      currentNode.next = previousNode;
+      previousNode = currentNode;
+      currentNode = nextNode;
+    }
+    list.head = previousNode;
+    return list;
   }
 }
