@@ -3,6 +3,8 @@ package codechallenges.LinkedList;
 import codechallenges.linkedlist.LinkedList;
 import org.junit.jupiter.api.Test;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+
 public class LinkedListTest {
   @Test void testLL() {
     LinkedList newLL = new LinkedList();
@@ -46,5 +48,23 @@ public class LinkedListTest {
     int k = 6;
     System.out.println(newLL.toString());
     System.out.println(k + " from the end = " + newLL.kthFromEnd(k));
+  }
+
+  @Test void zipListTest() {
+    LinkedList list1 = new LinkedList();
+    list1.insert(3);
+    list1.insert(2);
+    list1.insert(1);
+    LinkedList list2 = new LinkedList();
+    list2.insert(8);
+    list2.insert(7);
+    list2.insert(6);
+    list2.insert(5);
+    list2.insert(4);
+
+    LinkedList newLL = LinkedList.zipLists(list1, list2);
+    String output = newLL.toString();
+
+    assertEquals("{ 1 } -> { 4 } -> { 2 } -> { 5 } -> { 3 } -> { 6 } -> { 7 } -> { 8 } -> NULL", output);
   }
 }
