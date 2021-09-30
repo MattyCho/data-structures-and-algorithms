@@ -59,3 +59,22 @@ Big O:
 Time = O(n)
 Space = O(1)
 KthFromEnd method requires the program to traverse through the list.
+
+## Code Challenge 8
+
+### Challenge Summary
+- Zip two linked lists.
+- Create a method that will take in two Linked Lists and zip them together so that the nodes will be alternating from
+one list to the next.
+- Example:
+{1}->{2}->{3} + {4}->{5}->{6}->{7} = {1}->{4}->{2}->{5}->{3}->{6}->{7}
+### Whiteboard Process
+- Originally I wanted to just rearrange the next pointer for each node in both lists to alternate between themselves
+but it was easier for me to just create a new list and alternate between both lists as I appended the nodes to the end
+of the new list.
+![whiteboard](/java/codechallenges/cc8whiteboard.png)
+
+### Approach & Efficiency
+Big O:
+- Time = O(n)
+- Additional Space = O(2n)
