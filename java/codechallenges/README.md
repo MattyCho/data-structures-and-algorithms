@@ -78,3 +78,31 @@ of the new list.
 Big O:
 - Time = O(n)
 - Additional Space = O(2n)
+
+## Code Challenge 10
+### Stacks and Queues
+A stack is a data structure that consists of Nodes. Each Node references the next Node in the stack, but does not
+reference its previous. Think of it like a physical stack of dishes, or a deck of cards. It's easy to access and remove
+the top most item in the stack. A stack operates under the LIFO concept, Last In First Out. That means that new items
+are added to the top of the stack and removed from the top of the stack.
+A Queue is similar to a stack but instead operates under the FIFO concept, First In First Out. Think of it like a line
+of people. New people join the back of the line and the people who joined first are the first to leave.
+
+### Challenge
+- `Stack` has the methods `push`, `pop`, `peek`, and `isEmpty`.
+- `Queue` has the methods `enqueue`, `dequeue`, `peek`, and `isEmpty`.
+
+### Approach & Efficiency
+Big O for every method is O(1) for both time and additional space.
+
+### API
+- `Stack` methods:
+  - `push` - takes in a value and adds a node with that value to the top of the stack.
+  - `pop` - removes the top node from the stack. Returns the value of that node.
+  - `peek` - returns the value of the top node.
+  - `isEmpty` - returns true if the stack is empty or false if it is not.
+- `Queue` methods:
+  - `enqueue` - takes a value and adds a node with that value to the back of the queue.
+  - `dequeue` - removes the front node from the queue. Returns the value of that node.
+  - `peek` - returns the value of the front node.
+  - `isEmpty` - returns true if the queue is empty or false if it is not.
