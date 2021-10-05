@@ -106,3 +106,23 @@ Big O for every method is O(1) for both time and additional space.
   - `dequeue` - removes the front node from the queue. Returns the value of that node.
   - `peek` - returns the value of the front node.
   - `isEmpty` - returns true if the queue is empty or false if it is not.
+
+## Code Challenge 11
+#### Challenge Summary
+- Implement a Queue using two Stacks.
+- Queue should have an enqueue and dequeue method.
+
+### Whiteboard Process
+The main challenge was finding a way to maintain the FIFO layout of queues using stacks.
+I designated one stack to hold the values in the order they are inputted. In other words, stack one would have the top
+of the stack represent the back of the queue. This makes it easy to implement the enqueue method because adding to the
+back of the queue would be the same as pushing to the top of stack one. Stack two would be reversed. The top of stack
+two represents the front of the queue. That way I can pop and push all the nodes from stack one to stack two and they
+would be in reverse order. This makes it easy to dequeue by popping from stack 2 and returning that value.
+![whiteboard](/java/codechallenges/cc11whiteboard.png)
+
+### Approach & Efficiency
+Big O:
+  - Enqueue time: O(1)
+  - Dequeue time: O(n)
+  - Additional space: O(n)
