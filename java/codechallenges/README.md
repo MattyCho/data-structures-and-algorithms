@@ -126,3 +126,25 @@ Big O:
   - Enqueue time: O(1)
   - Dequeue time: O(n)
   - Additional space: O(n)
+
+## Code Challenge 13
+
+### Challenge Summary
+Multi-bracket Validation
+Create a function that takes in a string and returns a boolean.
+The program will return true if all brackets and parentheses in the string are properly closed.
+If not, it will return false.
+
+### Whiteboard Process
+I used a stack to push all open brackets/parentheses as the program iterates through the string.
+If it comes across a closing bracket/parenthesis, it will peek at the stack and compare if they match.
+If the stack is empty, it will return false.
+If the top of the stack matches the current character, it will pop from the stack.
+If they don't it will return false.
+If at the end the stack still has values inside, it will return false.
+Otherwise it will return true.
+![whiteboard](/java/codechallenges/cc13whiteboard.png)
+
+### Approach & Efficiency
+Time = O(n), it traverses the string once.
+Additional Space = O(n), creates a new stack that holds characters from the inputted string.
