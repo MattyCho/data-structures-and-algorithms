@@ -148,3 +148,26 @@ Otherwise it will return true.
 ### Approach & Efficiency
 Time = O(n), it traverses the string once.
 Additional Space = O(n), creates a new stack that holds characters from the inputted string.
+
+## Code Challenge 15
+### Trees
+Create a `Binary Tree` Class with a method for `pre-order`, `in-order`, and `post-order` traversal. Each method should return
+an array in the appropriate order.
+Create a `Binary Search Tree` (BST) Class with an add method and a contains method. The `add` method should take in a value and
+add it to the appropriate spot in the BST. The `contains` method should take in a value and return a boolean indicating
+whether that value appears in the BST at least once.
+
+### Challenge
+Binary Tree methods:
+- `pre-order`
+- `in-order`
+- `post-order`
+
+Binary Search Tree methods:
+- `add`
+- `contains`
+
+### Approach & Efficiency
+Big O:
+Time = O(n)
+Additional Space = O(1)

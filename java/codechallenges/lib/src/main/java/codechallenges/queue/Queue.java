@@ -1,5 +1,7 @@
 package codechallenges.queue;
 
+import codechallenges.linkedlist.LinkedList;
+
 public class Queue<T> {
   Node<T> front;
   Node<T> back;

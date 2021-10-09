@@ -3,7 +3,8 @@ package codechallenges.LinkedList;
 import codechallenges.linkedlist.LinkedList;
 import org.junit.jupiter.api.Test;
 
-import static codechallenges.linkedlist.LinkedList.reverseList;
+import java.util.Queue;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LinkedListTest {
@@ -80,4 +81,5 @@ public class LinkedListTest {
     String output = LinkedList.reverseList(list1).toString();
     assertEquals("{ 5 } -> { 4 } -> { 3 } -> { 2 } -> { 1 } -> NULL", output, "Reverse List Method fails");
   }
+
 }
