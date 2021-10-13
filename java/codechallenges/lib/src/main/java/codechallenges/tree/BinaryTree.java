@@ -1,7 +1,9 @@
 package codechallenges.tree;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Queue;
 
 public class BinaryTree<T>
 {
@@ -57,5 +59,31 @@ public class BinaryTree<T>
 
     Object[] outputArray = outputValues.toArray();
     return outputArray;
+  }
+
+  public int maxValue() {
+    return 0;
+  }
+
+  public List<T> breadthFirst(BinaryTree tree) {
+    if (tree.root == null) {
+      throw new IllegalArgumentException("This tree is empty");
+    }
+    Queue<Node> newQueue = new LinkedList<Node>();
+    newQueue.add(tree.root);
+    List<T> outputList = new ArrayList<>();
+    while (!newQueue.isEmpty()) {
+      Node frontNode = newQueue.poll();
+      outputList.add((T) frontNode.value);
+
+      if (frontNode.leftNode !=null) {
+        newQueue.add(frontNode.leftNode);
+      }
+      if (frontNode.rightNode !=null) {
+        newQueue.add(frontNode.rightNode);
+      }
+    }
+    System.out.println(outputList.toString());
+    return outputList;
   }
 }

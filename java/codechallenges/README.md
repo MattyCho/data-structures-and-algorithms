@@ -171,3 +171,17 @@ Binary Search Tree methods:
 Big O:
 Time = O(n)
 Additional Space = O(1)
+
+## Code Challenge 17
+### Challenge Summary
+Create a function that takes in a binary tree and uses breadth first traversal to output a list of all the values in the tree.
+
+### Whiteboard Process
+The breadth first traversal uses a queue to keep track of nodes and as they are dequeued their children nodes are added
+to the queue and the parent node's value is added to the output array list.
+![whiteboard](/java/codechallenges/cc17whiteboard.png)
+
+### Approach & Efficiency
+Big O:
+Time = O(n), time is dependent on the size/height of the input tree.
+Additional Space = O(n), the function creates a separate queue that will be dependent on the size/height of the tree.
