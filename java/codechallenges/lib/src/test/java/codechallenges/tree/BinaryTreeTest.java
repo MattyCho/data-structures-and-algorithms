@@ -89,8 +89,27 @@ public class BinaryTreeTest {
   @Test
   public void addBSTTest() {
     BinarySearchTree newTree = new BinarySearchTree();
-    newTree.add(5);
+//    newTree.add(5);
 
     newTree.inOrderTraversal(newTree.root);
+  }
+
+  @Test
+  public void breadthFirstTest() {
+    BinaryTree newTree = new BinaryTree();
+    Node nodeA = new Node("A");
+    Node nodeB = new Node("B");
+    Node nodeC = new Node("C");
+    Node nodeD = new Node("D");
+    Node nodeE = new Node("E");
+    Node nodeF = new Node("F");
+    nodeA.leftNode = nodeB;
+    nodeA.rightNode = nodeC;
+    nodeB.leftNode = nodeD;
+    nodeB.rightNode = nodeE;
+    nodeC.leftNode = nodeF;
+    newTree.root = nodeA;
+
+    newTree.breadthFirst(newTree);
   }
 }

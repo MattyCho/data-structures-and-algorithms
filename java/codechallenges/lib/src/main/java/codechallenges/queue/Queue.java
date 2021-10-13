@@ -6,7 +6,7 @@ public class Queue<T> {
   Node<T> front;
   Node<T> back;
 
-  void enqueue(T value) {
+  public void enqueue(T value) {
     Node<T> newNode = new Node<T>(value);
     if (this.front == null && this.back == null) {
       this.front = newNode;
@@ -16,20 +16,20 @@ public class Queue<T> {
     this.back = newNode;
   }
 
-  T dequeue() {
+  public Node<T> dequeue() {
     if (this.front == null) {
       throw new IllegalArgumentException("Queue is already empty");
     }
-    T frontValue = this.front.value;
+    Node<T> frontNode = this.front;
     this.front = this.front.next;
-    return frontValue;
+    return frontNode;
   }
 
-  T peek() {
+  public T peek() {
     return this.front.value;
   }
 
-  boolean isEmpty() {
+  public boolean isEmpty() {
     if (this.front == null && this.back == null) {
       return true;
     }
