@@ -27,14 +27,14 @@ Output:
 `[4, 8, 15, 16, 23, 42]`
 
 ### Step 1
-![step1](lib/src/main/java/codechallenges/cc26/images/Step1.png)
+![step1](java/codechallenges/lib/src/main/java/codechallenges/cc26/images/Step1.png)
 In the first pass through, we enter the for loop and want to compare if the current value at index i is less than the value of the previous index, j.
 In this case it is true, (4 < 8), and so we move the value one index higher to make room for our insertion, i.e. 8 which was originally at index 0 is now moved to arr[1].
 Then to move backwards through the array we subtract one from j which makes j equal to -1 and breaks us out of the while loop.
 Now we know the index to insert our value is going to be j+1 (-1 + 1), so arr[0]=4.
 
 ### Step 2
-![step2](lib/src/main/java/codechallenges/cc26/images/Step2.png)
+![step2](/java/codechallenges/lib/src/main/java/codechallenges/cc26/images/Step2.png)
 On the second pass through, we now have an array like `[4, 8, 23, 42, 16, 15]`.
 i starts at 2 and j starts at a value of 1.
 We do not enter the while loop because temp < arr[j], 23 < 8.
