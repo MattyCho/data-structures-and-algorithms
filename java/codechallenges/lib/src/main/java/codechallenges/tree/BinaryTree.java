@@ -69,7 +69,7 @@ public class BinaryTree<T>
     if (tree.root == null) {
       throw new IllegalArgumentException("This tree is empty");
     }
-    Queue<Node> newQueue = new LinkedList<Node>();
+    Queue<Node> newQueue = new LinkedList<>();
     newQueue.add(tree.root);
     List<T> outputList = new ArrayList<>();
     while (!newQueue.isEmpty()) {
@@ -85,5 +85,9 @@ public class BinaryTree<T>
     }
     System.out.println(outputList.toString());
     return outputList;
+  }
+
+  public BinaryTree fizzBuzzTree(BinaryTree tree) {
+    return tree;
   }
 }
