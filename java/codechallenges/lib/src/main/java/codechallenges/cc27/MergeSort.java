@@ -9,14 +9,16 @@ public class MergeSort {
 
     if (n > 1) {
       int mid = n/2;
-      int[] left = new int[n-mid];
-      for (int i = 0; i < left.length; i++) {
-        left[i] = arr[i];
-      }
-      int[] right = new int[mid];
-      for (int i = 0; i < right.length; i++) {
-        right[i] = arr[mid+i];
-      }
+      int[] left;
+      left = Arrays.copyOfRange(arr, 0, mid);
+//      for (int i = 0; i < left.length; i++) {
+//        left[i] = arr[i];
+//      }
+      int[] right;
+      right = Arrays.copyOfRange(arr, mid, n);
+//      for (int i = 0; i < right.length; i++) {
+//        right[i] = arr[mid+i];
+//      }
       mergeSort(left);
       mergeSort(right);
       merge(left, right, arr);
@@ -33,23 +35,21 @@ public class MergeSort {
       if (left[i] <= right[j]) {
         arr[k] = left[i];
         i++;
-        System.out.println("Left" + Arrays.toString(left));
       } else {
         arr[k] = right[j];
         j++;
-        System.out.println("Right" + Arrays.toString(right));
       }
       k++;
     }
 
     if (i == left.length) {
       for (;j < right.length; j++) {
-        arr[k] = arr[j];
+        arr[k] = right[j];
         k++;
       }
     } else {
       for (;i < left.length; i++) {
-        arr[k] = arr[i];
+        arr[k] = left[i];
         k++;
       }
     }
