@@ -1,4 +1,4 @@
-# Code Challenge 25 - Insertion Sort Big 0
+# Code Challenge 26 - Insertion Sort Big 0
 
 ## Pseudocode
 ```Java
