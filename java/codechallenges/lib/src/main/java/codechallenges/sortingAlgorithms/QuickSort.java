@@ -1,4 +1,4 @@
-package codechallenges.cc28;
+package codechallenges.sortingAlgorithms;
 
 public class QuickSort {
 
