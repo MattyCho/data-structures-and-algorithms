@@ -27,27 +27,27 @@ Output:
 `[4, 8, 15, 16, 23, 42]`
 
 ### Step 1
-![step1](/java/codechallenges/lib/src/main/java/codechallenges/cc26/images/Step1.png)
+![step1](/java/codechallenges/lib/src/main/java/codechallenges/sortingAlgorithms/images/insertionSortImages/Step1.png)
 In the first pass through, we enter the for loop and want to compare if the current value at index i is less than the value of the previous index, j.
 In this case it is true, (4 < 8), and so we move the value one index higher to make room for our insertion, i.e. 8 which was originally at index 0 is now moved to arr[1].
 Then to move backwards through the array we subtract one from j which makes j equal to -1 and breaks us out of the while loop.
 Now we know the index to insert our value is going to be j+1 (-1 + 1), so arr[0]=4.
 
 ### Step 2
-![step2](/java/codechallenges/lib/src/main/java/codechallenges/cc26/images/Step2.png)
+![step2](/java/codechallenges/lib/src/main/java/codechallenges/sortingAlgorithms/images/insertionSortImages/Step2.png)
 On the second pass through, we now have an array like `[4, 8, 23, 42, 16, 15]`.
 i starts at 2 and j starts at a value of 1.
 We do not enter the while loop because temp < arr[j], 23 < 8.
 Therefore, we insert the value of 23 at arr[j+1] (which is also just arr[i] in this case, i.e. 23 does not move inside the array).
 
 ### Step 3
-![step3](/java/codechallenges/lib/src/main/java/codechallenges/cc26/images/Step3.png)
+![step3](/java/codechallenges/lib/src/main/java/codechallenges/sortingAlgorithms/images/insertionSortImages/Step3.png)
 Similar to the previous step.
 i starts at 3 and j starts at 2.
 42 is not less than 23, so 42 is "inserted" exactly where it is.
 
 ### Step 4
-![step4](/java/codechallenges/lib/src/main/java/codechallenges/cc26/images/Step4.png)
+![step4](/java/codechallenges/lib/src/main/java/codechallenges/sortingAlgorithms/images/insertionSortImages/Step4.png)
 i starts at 4 and j starts at 3.
 We enter the while loop because 3 is greater than 0 (j >= 0) and 16 is less than 42 (temp < arr[j]).
 And so move 42 one index higher and subtract one from j.
@@ -57,7 +57,7 @@ Now j is 1 and 16 is not less than 8, so we break out of the while loop.
 We insert 16 at the index of j+1.
 
 ### Step 5
-![step5](/java/codechallenges/lib/src/main/java/codechallenges/cc26/images/Step5.png)
+![step5](/java/codechallenges/lib/src/main/java/codechallenges/sortingAlgorithms/images/insertionSortImages/Step5.png)
 The array now looks like `[4, 8, 16, 23, 42, 15]`
 i starts at 5 and j starts at 4.
 We enter the while loop because 4 is greater than 0 and 15 is less than 42
@@ -70,7 +70,7 @@ j is 1 and 15 is NOT less than 8, so we break out of the while loop.
 15 is inserted after 8.
 
 ### Step 6
-![step6](/java/codechallenges/lib/src/main/java/codechallenges/cc26/images/Step6.png)
+![step6](/java/codechallenges/lib/src/main/java/codechallenges/sortingAlgorithms/images/insertionSortImages/Step6.png)
 i is 6, and we break out of the for loop because that exceeds the length of the array.
 So in the end we get an array of `[4, 8, 15, 16, 23, 42]`
 

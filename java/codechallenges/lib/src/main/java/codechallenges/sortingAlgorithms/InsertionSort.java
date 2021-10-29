@@ -1,4 +1,4 @@
-package codechallenges.cc26;
+package codechallenges.sortingAlgorithms;
 
 public class InsertionSort {
 

@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-import static codechallenges.cc26.InsertionSort.insertionSort;
-import static codechallenges.cc27.MergeSort.mergeSort;
-import static codechallenges.cc28.QuickSort.quickSort;
+import static codechallenges.sortingAlgorithms.InsertionSort.insertionSort;
+import static codechallenges.sortingAlgorithms.MergeSort.mergeSort;
+import static codechallenges.sortingAlgorithms.QuickSort.quickSort;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class sortTests {

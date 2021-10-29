@@ -1,4 +1,4 @@
-package codechallenges.cc27;
+package codechallenges.sortingAlgorithms;
 
 import java.util.Arrays;
 
