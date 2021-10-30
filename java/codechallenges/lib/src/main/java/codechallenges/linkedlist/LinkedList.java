@@ -1,18 +1,18 @@
 package codechallenges.linkedlist;
 
-public class LinkedList {
+public class LinkedList<T> {
   Node head = null;
 
-  public void insert(int value) {
+  public void insert(T value) {
     Node newNode = new Node(value);
     newNode.next = this.head;
     this.head = newNode;
   }
 
-  public boolean includes(int searchValue) {
+  public boolean includes(T searchValue) {
     Node currentNode = this.head;
     while (currentNode != null) {
-      if (currentNode.value == searchValue) {
+      if (currentNode.value.equals(searchValue)) {
         return true;
       }
       currentNode = currentNode.next;
@@ -32,7 +32,7 @@ public class LinkedList {
     return stringLL;
   }
 
-  public void append(int newValue) {
+  public void append(T newValue) {
     Node newNode = new Node(newValue);
     newNode.next = null;
     if (this.head == null) {
@@ -50,7 +50,7 @@ public class LinkedList {
     Node newNode = new Node(newValue);
     Node currentNode = this.head;
     while (currentNode.next != null) {
-      if (currentNode.next.value == nextValue) {
+      if (currentNode.next.value.equals(nextValue)) {
         newNode.next = currentNode.next;
         currentNode.next = newNode;
         currentNode = newNode.next;
@@ -64,7 +64,7 @@ public class LinkedList {
     Node newNode = new Node(newValue);
     Node currentNode = this.head;
     while (currentNode.next != null) {
-      if (currentNode.value == beforeValue) {
+      if (currentNode.value.equals(beforeValue)) {
         newNode.next = currentNode.next;
         currentNode.next = newNode;
       }
@@ -82,7 +82,7 @@ public class LinkedList {
     return listSize;
   }
 
-  public int kthFromEnd (int k) {
+  public T kthFromEnd (int k) {
     int listSize = this.listSize();
     int index = listSize - 1 - k;
     Node currentNode = this.head;
@@ -91,13 +91,15 @@ public class LinkedList {
     }
     while (index >= 0) {
       if (index == 0 ) {
-        return currentNode.value;
+        //maybe broke after convert to generic T
+        return (T) currentNode.value;
       } else {
         currentNode = currentNode.next;
         index--;
       }
     }
-    return currentNode.value;
+    //maybe broke after convert to generic T
+    return (T) currentNode.value;
   }
 
   public static LinkedList zipLists(LinkedList list1, LinkedList list2) {
