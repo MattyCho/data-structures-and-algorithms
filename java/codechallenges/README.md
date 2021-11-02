@@ -185,3 +185,18 @@ to the queue and the parent node's value is added to the output array list.
 Big O:
 Time = O(n), time is dependent on the size/height of the input tree.
 Additional Space = O(n), the function creates a separate queue that will be dependent on the size/height of the tree.
+
+## Code Challenge 31
+### Challenge Summary
+Write a function called repeated word that takes in a String and returns the first word to occur more than once in that String.
+
+### Whiteboard Process
+Converted the String to an array. Removed the punctuation and converted to lowercase using regex. Create a HashMap and
+iterate through the array checking to see if the current word is contained in the HashMap. If not add the word to the
+HashMap. If the HashMap does contain the word, return the word.
+![whiteboard](/java/codechallenges/cc31whiteboard.png)
+
+### Approach & Efficiency
+Time: O(n)
+Additional Space: O(n)
+The bigger the input the longer it will take to iterate through the array and the greater the size of the array and HashMap.
