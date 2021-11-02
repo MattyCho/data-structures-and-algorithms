@@ -45,7 +45,7 @@ public class HashMap<K, V> {
     int hashCode = hash(key);
     LinkedList<HashMapPair<K, V>> linkedList = bucketArrayList.get(hashCode);
     for (HashMapPair<K, V> currentPair : linkedList) {
-      if (currentPair.getKey() == key) {
+      if (currentPair.getKey().equals(key)) {
         return true;
       }
     }
@@ -54,5 +54,18 @@ public class HashMap<K, V> {
 
   public int hash(K key) {
     return Math.abs(key.hashCode() % size);
+  }
+
+  public static String repeatedWords(String string) {
+    String[] wordsArray = string.replaceAll("[^a-zA-Z ]", "").toLowerCase().split("\\s+");
+    int size = wordsArray.length;
+    HashMap<String, Boolean> newHashMap = new HashMap<>(size);
+    for (String word : wordsArray) {
+      if (newHashMap.contains(word)) {
+        return word;
+      }
+      newHashMap.add(word.toLowerCase(), true);
+    }
+    return null;
   }
 }
