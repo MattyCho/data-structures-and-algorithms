@@ -9,7 +9,7 @@ public class HashMapTest {
   void hashMapTest() {
     HashMap<Integer, String> testHashMap = new HashMap(10);
     testHashMap.add(1, "test");
-    testHashMap.add(1, "test2");
-    testHashMap.get(1);
+    System.out.println(testHashMap.get(1));
+    System.out.println(testHashMap.contains(1));
   }
 }

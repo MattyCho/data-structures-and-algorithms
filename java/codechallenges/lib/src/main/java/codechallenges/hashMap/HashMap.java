@@ -21,6 +21,9 @@ public class HashMap<K, V> {
   }
 
   public void add(K key, V value) {
+    if (this.contains(key)) {
+      throw new IllegalArgumentException("Key must be unique");
+    }
     int hashCode = hash(key);
     LinkedList linkedList = bucketArrayList.get(hashCode);
     HashMapPair keyValuePair = new HashMapPair(key, value);
@@ -29,11 +32,23 @@ public class HashMap<K, V> {
 
   public V get(K key) {
     int hashCode = hash(key);
-    LinkedList linkedList = bucketArrayList.get(hashCode);
+    LinkedList<HashMapPair<K, V>> linkedList = bucketArrayList.get(hashCode);
+    for (HashMapPair<K, V> currentPair : linkedList) {
+      if (currentPair.getKey() == key) {
+        return currentPair.getValue();
+      }
+    }
     return null;
   }
 
   public boolean contains(K key) {
+    int hashCode = hash(key);
+    LinkedList<HashMapPair<K, V>> linkedList = bucketArrayList.get(hashCode);
+    for (HashMapPair<K, V> currentPair : linkedList) {
+      if (currentPair.getKey() == key) {
+        return true;
+      }
+    }
     return false;
   }
 
