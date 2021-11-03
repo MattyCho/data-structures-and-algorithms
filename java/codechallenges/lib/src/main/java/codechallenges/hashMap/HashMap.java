@@ -1,7 +1,11 @@
 package codechallenges.hashMap;
 
+import codechallenges.tree.BinaryTree;
+import codechallenges.tree.Node;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 public class HashMap<K, V> {
 
@@ -67,5 +71,22 @@ public class HashMap<K, V> {
       newHashMap.add(word.toLowerCase(), true);
     }
     return null;
+  }
+
+  public List<Object> treeIntersection(BinaryTree<K> treeOne, BinaryTree<K> treeTwo) {
+    List<Object> sameValues = new ArrayList<>();
+    Object[] treeOneValues = treeOne.preOrderTraversal(treeOne.root);
+    Object[] treeTwoValues = treeTwo.preOrderTraversal(treeTwo.root);
+    int size = treeOneValues.length * 2;
+    HashMap<Object, Boolean> newHashMap = new HashMap<>(size);
+    for (Object treeOneValue : treeOneValues) {
+      newHashMap.add(treeOneValue, true);
+    }
+    for (Object treeTwoValue : treeTwoValues) {
+      if (newHashMap.contains(treeTwoValue)) {
+        sameValues.add(treeTwoValue);
+      }
+    }
+    return sameValues;
   }
 }

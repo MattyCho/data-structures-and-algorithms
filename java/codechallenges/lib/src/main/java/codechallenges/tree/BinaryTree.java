@@ -7,7 +7,7 @@ import java.util.Queue;
 
 public class BinaryTree<T>
 {
-  Node<T> root;
+  public Node<T> root;
   List outputValues = new ArrayList();
 
   public Object[] preOrderTraversal(Node node)
