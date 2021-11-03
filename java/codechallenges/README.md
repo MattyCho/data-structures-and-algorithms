@@ -200,3 +200,21 @@ HashMap. If the HashMap does contain the word, return the word.
 Time: O(n)
 Additional Space: O(n)
 The bigger the input the longer it will take to iterate through the array and the greater the size of the array and HashMap.
+
+## Code Challenge 32
+### Challenge Summary
+Write a function called `tree_intersection` that takes two binary trees as parameters and returns an ArrayList of the
+values that can be found in both trees.
+
+### Whiteboard Process
+Traversed through both Binary Tree's and store their values in an array.
+Add one array of values to a HashMap.
+Use the HashMap to check if any of the second array's values are contained within.
+If they are store them in a new output array.
+return the output array.
+
+### Approach & Efficiency
+Time: O(m + n)
+Additional Space: O(m + n)
+I have to traverse through both Binary Trees and traverse through each array once as well.
+For additional space, I'm creating 2 new arrays based on the size of the inputted Binary Trees.
