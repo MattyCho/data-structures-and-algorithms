@@ -218,3 +218,18 @@ Time: O(m + n)
 Additional Space: O(m + n)
 I have to traverse through both Binary Trees and traverse through each array once as well.
 For additional space, I'm creating 2 new arrays based on the size of the inputted Binary Trees.
+
+## Code Challenge 33
+### Challenge Summary
+Write a function, leftJoin(), that takes in two HashMaps as arguments and returns a list with both HashMaps *Left Joined*.
+The first HashMap contains a Key and a Value which is a synonym of the Key.
+The second HashMap contains a Key and a Value which is an antonym of the Key.
+### Whiteboard Process
+Loop through the first HashMap using KeySet.
+For each key in the first HashMap add it to a output list.
+For each key in the first HashMap also "get" the key for the second HashMap, which will return null if the key is not in the second HashMap.
+### Approach & Efficiency
+Time: O(n)
+Additional Space: O(n)
+Only need to loop through the one HashMap.
+Creates a new data structure to hold the return values.
