@@ -62,4 +62,22 @@ public class HashMapTest {
     testList.add(3);
     assertEquals(testList, newHashMap.treeIntersection(testTreeOne, testTreeTwo));
   }
+
+  @Test
+  void leftJoinTest() {
+    java.util.HashMap testHashMap1 = new java.util.HashMap();
+    java.util.HashMap testHashMap2 = new java.util.HashMap();
+    testHashMap1.put("fond", "enamored");
+    testHashMap1.put("wrath", "anger");
+    testHashMap1.put("diligent", "employed");
+    testHashMap1.put("outfit", "garb");
+    testHashMap1.put("guide", "usher");
+    testHashMap2.put("fond", "averse");
+    testHashMap2.put("wrath", "delight");
+    testHashMap2.put("diligent", "idle");
+    testHashMap2.put("guide", "follow");
+    testHashMap2.put("flow", "jam");
+    String testString = "[ [diligent, employed, idle],  [outfit, garb, null],  [wrath, anger, delight],  [guide, usher, follow],  [fond, enamored, averse]]";
+    assertEquals(testString, HashMap.leftJoin(testHashMap1, testHashMap2).toString());
+  }
 }

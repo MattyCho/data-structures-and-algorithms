@@ -89,4 +89,12 @@ public class HashMap<K, V> {
     }
     return sameValues;
   }
+
+  public static List<String> leftJoin(java.util.HashMap h1, java.util.HashMap h2) {
+    List<String> list = new ArrayList<>();
+    for (Object key : h1.keySet()) {
+      list.add(" [" + key + ", " + h1.get(key) + ", " + h2.get(key) + "]");
+    }
+    return list;
+  }
 }
