@@ -233,3 +233,12 @@ Time: O(n)
 Additional Space: O(n)
 Only need to loop through the one HashMap.
 Creates a new data structure to hold the return values.
+
+## Code Challenge 35
+### Challenge Summary
+Create a Graph with the following methods:
+  - addNode - takes in a value, adds it to the graph, and returns the add node.
+  - addEdge - takes in 2 nodes, and a weight, returns nothing. Creates an edge between the nodes with the assigned weight.
+  - getNodes - returns all nodes in the graph as a collection.
+  - getNeighbors - takes in a node and returns all neighboring nodes in a list.
+  - size - returns the total number of nodes in the graph.
