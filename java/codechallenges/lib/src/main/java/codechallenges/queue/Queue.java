@@ -11,9 +11,11 @@ public class Queue<T> {
     if (this.front == null && this.back == null) {
       this.front = newNode;
       this.back = newNode;
+      this.front.next = null;
+    } else {
+      this.back.next = newNode;
+      this.back = newNode;
     }
-    this.back.next = newNode;
-    this.back = newNode;
   }
 
   public Node<T> dequeue() {
@@ -22,6 +24,9 @@ public class Queue<T> {
     }
     Node<T> frontNode = this.front;
     this.front = this.front.next;
+    if (this.front == null) {
+      this.back = null;
+    }
     return frontNode;
   }
 

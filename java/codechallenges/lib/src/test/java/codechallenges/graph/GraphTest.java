@@ -36,4 +36,36 @@ public class GraphTest {
     testSet.add(cNode);
     assertEquals(testSet, sut.getNodes());
   }
+
+  @Test
+  void graphBreadFirstTest() {
+    Graph<String> sut = new Graph<>();
+
+    Vertex<String> pandoraNode = sut.addNode("Pandora");
+    Vertex<String> arendelleNode = sut.addNode("Arendelle");
+    Vertex<String> metrovilleNode = sut.addNode("Metroville");
+    Vertex<String> monstropolisNode = sut.addNode("Monstropolis");
+    Vertex<String> narniaNode = sut.addNode("Narnia");
+    Vertex<String> nabooNode = sut.addNode("Naboo");
+
+    sut.addEdge(pandoraNode, arendelleNode, 0);
+    sut.addEdge(arendelleNode, pandoraNode, 0);
+    sut.addEdge(arendelleNode, metrovilleNode, 0);
+    sut.addEdge(metrovilleNode, arendelleNode, 0);
+    sut.addEdge(arendelleNode, monstropolisNode, 0);
+    sut.addEdge(monstropolisNode, arendelleNode, 0);
+    sut.addEdge(metrovilleNode, monstropolisNode, 0);
+    sut.addEdge(monstropolisNode, metrovilleNode, 0);
+    sut.addEdge(metrovilleNode, narniaNode, 0);
+    sut.addEdge(narniaNode, metrovilleNode, 0);
+    sut.addEdge(metrovilleNode, nabooNode, 0);
+    sut.addEdge(nabooNode, metrovilleNode, 0);
+    sut.addEdge(monstropolisNode, nabooNode, 0);
+    sut.addEdge(nabooNode, monstropolisNode, 0);
+    sut.addEdge(narniaNode, nabooNode, 0);
+    sut.addEdge(nabooNode, narniaNode, 0);
+
+    String testString = "[Pandora, Arendelle, Metroville, Monstropolis, Narnia, Naboo]";
+    assertEquals(testString, sut.breadthFirst(pandoraNode).toString());
+  }
 }
