@@ -242,3 +242,54 @@ Create a Graph with the following methods:
   - getNodes - returns all nodes in the graph as a collection.
   - getNeighbors - takes in a node and returns all neighboring nodes in a list.
   - size - returns the total number of nodes in the graph.
+
+## Code Challenge 36
+### Challenge Summary
+Write the following method for the Graph class:
+  - breadth first
+  - Arguments: Node
+  - Return: A collection of nodes in the order they were visited.
+  - Display the collection
+
+### Whiteboard Process
+
+- Pseudocode:
+```Java
+ALGORITHM BreadthFirst(vertex)
+    DECLARE nodes <-- new List()
+    DECLARE breadth <-- new Queue()
+    DECLARE visited <-- new Set()
+
+    breadth.Enqueue(vertex)
+    visited.Add(vertex)
+
+    while (breadth is not empty)
+        DECLARE front <-- breadth.Dequeue()
+        nodes.Add(front)
+
+        for each child in front.Children
+            if(child is not visited)
+                visited.Add(child)
+                breadth.Enqueue(child)
+
+    return nodes;
+```
+
+1. We have declared that our starting node (or root) is going to be `Node A`.
+2. The first thing we want to do is `Enqueue` the root.
+3. We also need to add the root to the `visited` set.
+4. Next, we enter a while loop. We want this loop to keep running until there are no more nodes in our queue.
+5. Once we are in the while loop, we want to `Dequeue` the front node and then check to see if it has any children.
+6. if there are children of the node we are currently looking at, we want to add them to `visited` set. This will help us know that we have already seen that node before, and won’t accidently push us into an infinite loop if the graph was cyclic. In addition to tracking each child node as visited, we want to place any of its children that have not yet been visited into the queue.
+7. The process will complete until the queue is empty.
+8. Once the while loop breaks, we can then return the list of nodes. This list will contain, in order, all the nodes that were traversed.
+
+### Approach & Efficiency
+Big O:
+  - Time: O(n)
+  - Additional Space: O(n)
+Breadth first traversal will visit each vertex only once which leads to O(n) for time.
+Although my code is creating multiple data structures (List, Queue, HashMap) the additional space complexity is going
+to be O(n) as well. For example, if my graph had 10 vertices, the List, Queue, and HashMap would only ever hold at
+most 10 as well. So in total there might be an extra 30 vertices (10 for each data structure) but it doesn't come close
+to the 100 vertices an O(n^2) space complexity would have.

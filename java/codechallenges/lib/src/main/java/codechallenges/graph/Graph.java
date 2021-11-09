@@ -1,9 +1,9 @@
 package codechallenges.graph;
 
-import java.util.LinkedHashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import codechallenges.queue.Node;
+import codechallenges.queue.Queue;
+
+import java.util.*;
 
 public class Graph<T extends Comparable<? super T>> {
 
@@ -39,6 +39,27 @@ public class Graph<T extends Comparable<? super T>> {
 
   int size() {
     return this.size;
+  }
+
+  List<Vertex<T>> breadthFirst(Vertex<T> root) {
+    List<Vertex<T>> outputList = new ArrayList<>();
+    Queue<Vertex<T>> breadth = new Queue<>();
+    HashMap<Vertex<T>, Integer> visitedVertices = new HashMap<>();
+
+    breadth.enqueue(root);
+    visitedVertices.put(root, 0);
+
+    while (!breadth.isEmpty()) {
+      Vertex<T> front = breadth.dequeue().value;
+      outputList.add(front);
+      for (Edge edge : this.getNeighbors(front)) {
+        if (!visitedVertices.containsKey(edge.destination)) {
+          visitedVertices.put(edge.destination, 0);
+          breadth.enqueue(edge.destination);
+        }
+      }
+    }
+    return outputList;
   }
 
   @Override
