@@ -62,7 +62,7 @@ public class Graph<T extends Comparable<? super T>> {
     return outputList;
   }
 
-  String businessTrip(Graph graph, String[] cityNames) {
+  String businessTrip(Graph<T> graph, String[] cityNames) {
     int totalCost = 0;
     boolean isDirectFlight = false;
     int arrayLength = cityNames.length;
