@@ -62,6 +62,35 @@ public class Graph<T extends Comparable<? super T>> {
     return outputList;
   }
 
+  String businessTrip(Graph graph, String[] cityNames) {
+    int totalCost = 0;
+    boolean isDirectFlight = false;
+    int arrayLength = cityNames.length;
+    String outputString = "";
+    Set<Vertex<T>> vertexSet = graph.getNodes();
+
+    for (int i = 0; i < arrayLength; i++) {
+      if (i + 1 >= arrayLength) {
+        break;
+      }
+      for (Vertex<T> vertex : vertexSet) {
+        if (vertex.value.equals(cityNames[i])) {
+          List<Edge<T>> edgeList = getNeighbors(vertex);
+          for (Edge<T> edge : edgeList) {
+            if(edge.destination.value.equals(cityNames[i+1])) {
+              totalCost += edge.weight;
+              isDirectFlight = true;
+              break;
+            }
+          }
+          break;
+        }
+      }
+    }
+    outputString = isDirectFlight + ", $" + totalCost;
+    return outputString;
+  }
+
   @Override
   public String toString() {
     Set<Vertex<T>> vertices = adjacencyListsMap.keySet();

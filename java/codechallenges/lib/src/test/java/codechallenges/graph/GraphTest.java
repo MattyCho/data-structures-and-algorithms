@@ -2,10 +2,7 @@ package codechallenges.graph;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.HashSet;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -48,24 +45,70 @@ public class GraphTest {
     Vertex<String> narniaNode = sut.addNode("Narnia");
     Vertex<String> nabooNode = sut.addNode("Naboo");
 
-    sut.addEdge(pandoraNode, arendelleNode, 0);
-    sut.addEdge(arendelleNode, pandoraNode, 0);
-    sut.addEdge(arendelleNode, metrovilleNode, 0);
-    sut.addEdge(metrovilleNode, arendelleNode, 0);
-    sut.addEdge(arendelleNode, monstropolisNode, 0);
-    sut.addEdge(monstropolisNode, arendelleNode, 0);
-    sut.addEdge(metrovilleNode, monstropolisNode, 0);
-    sut.addEdge(monstropolisNode, metrovilleNode, 0);
-    sut.addEdge(metrovilleNode, narniaNode, 0);
-    sut.addEdge(narniaNode, metrovilleNode, 0);
-    sut.addEdge(metrovilleNode, nabooNode, 0);
-    sut.addEdge(nabooNode, metrovilleNode, 0);
-    sut.addEdge(monstropolisNode, nabooNode, 0);
-    sut.addEdge(nabooNode, monstropolisNode, 0);
-    sut.addEdge(narniaNode, nabooNode, 0);
-    sut.addEdge(nabooNode, narniaNode, 0);
+    sut.addEdge(pandoraNode, arendelleNode, 150);
+    sut.addEdge(arendelleNode, pandoraNode, 150);
+    sut.addEdge(pandoraNode, metrovilleNode, 82);
+    sut.addEdge(metrovilleNode, pandoraNode, 82);
+    sut.addEdge(arendelleNode, metrovilleNode, 99);
+    sut.addEdge(metrovilleNode, arendelleNode, 99);
+    sut.addEdge(arendelleNode, monstropolisNode, 42);
+    sut.addEdge(monstropolisNode, arendelleNode, 42);
+    sut.addEdge(metrovilleNode, monstropolisNode, 105);
+    sut.addEdge(monstropolisNode, metrovilleNode, 105);
+    sut.addEdge(metrovilleNode, narniaNode, 37);
+    sut.addEdge(narniaNode, metrovilleNode, 37);
+    sut.addEdge(metrovilleNode, nabooNode, 26);
+    sut.addEdge(nabooNode, metrovilleNode, 26);
+    sut.addEdge(monstropolisNode, nabooNode, 73);
+    sut.addEdge(nabooNode, monstropolisNode, 73);
+    sut.addEdge(narniaNode, nabooNode, 250);
+    sut.addEdge(nabooNode, narniaNode, 250);
 
     String testString = "[Pandora, Arendelle, Metroville, Monstropolis, Narnia, Naboo]";
     assertEquals(testString, sut.breadthFirst(pandoraNode).toString());
+  }
+
+  @Test
+  void businessTripTest() {
+    Graph<String> sut = new Graph<>();
+
+    Vertex<String> pandoraNode = sut.addNode("Pandora");
+    Vertex<String> arendelleNode = sut.addNode("Arendelle");
+    Vertex<String> metrovilleNode = sut.addNode("Metroville");
+    Vertex<String> monstropolisNode = sut.addNode("Monstropolis");
+    Vertex<String> narniaNode = sut.addNode("Narnia");
+    Vertex<String> nabooNode = sut.addNode("Naboo");
+
+    sut.addEdge(pandoraNode, arendelleNode, 150);
+    sut.addEdge(arendelleNode, pandoraNode, 150);
+    sut.addEdge(pandoraNode, metrovilleNode, 82);
+    sut.addEdge(metrovilleNode, pandoraNode, 82);
+    sut.addEdge(arendelleNode, metrovilleNode, 99);
+    sut.addEdge(metrovilleNode, arendelleNode, 99);
+    sut.addEdge(arendelleNode, monstropolisNode, 42);
+    sut.addEdge(monstropolisNode, arendelleNode, 42);
+    sut.addEdge(metrovilleNode, monstropolisNode, 105);
+    sut.addEdge(monstropolisNode, metrovilleNode, 105);
+    sut.addEdge(metrovilleNode, narniaNode, 37);
+    sut.addEdge(narniaNode, metrovilleNode, 37);
+    sut.addEdge(metrovilleNode, nabooNode, 26);
+    sut.addEdge(nabooNode, metrovilleNode, 26);
+    sut.addEdge(monstropolisNode, nabooNode, 73);
+    sut.addEdge(nabooNode, monstropolisNode, 73);
+    sut.addEdge(narniaNode, nabooNode, 250);
+    sut.addEdge(nabooNode, narniaNode, 250);
+
+    String[] testArray = {"Metroville", "Pandora"};
+    assertEquals("true, $82", sut.businessTrip(sut, testArray));
+    System.out.println(sut.businessTrip(sut, testArray));
+    String[] testArray2 = {"Arendelle", "Monstropolis", "Naboo"};
+    assertEquals("true, $115", sut.businessTrip(sut, testArray2));
+    System.out.println(sut.businessTrip(sut, testArray2));
+    String[] testArray3 = {"Naboo", "Pandora"};
+    assertEquals("false, $0", sut.businessTrip(sut, testArray3));
+    System.out.println(sut.businessTrip(sut, testArray3));
+    String[] testArray4 = {"Narnia", "Arendelle", "Naboo"};
+    assertEquals("false, $0", sut.businessTrip(sut, testArray4));
+    System.out.println(sut.businessTrip(sut, testArray4));
   }
 }

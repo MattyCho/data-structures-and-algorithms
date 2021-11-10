@@ -293,3 +293,24 @@ Although my code is creating multiple data structures (List, Queue, HashMap) the
 to be O(n) as well. For example, if my graph had 10 vertices, the List, Queue, and HashMap would only ever hold at
 most 10 as well. So in total there might be an extra 30 vertices (10 for each data structure) but it doesn't come close
 to the 100 vertices an O(n^2) space complexity would have.
+
+## Code Challenge 37
+### Challenge Summary
+Write a function called business trip
+  - Arguments: graph, array of city names
+  - Return: cost or null
+Determine whether the trip is possible with direct flights, and how much it would cost.
+### Whiteboard Process
+  ![Visual Graph](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-37/GraphDay27.PNG)
+First I wanted to loop through the array of city names and see if they were contained within the graph.
+If a vertex has the same city name as the array then I loop through the edges and check if an edge has the same destination name as the next value in the array.
+If they do, I add the weight to the `totalCost` variable and change the `isDirectFlight` boolean to true.
+If an edge or vertex does not contain the correct city name from the array then `totalCost` and `isDirectFlight` remain as 0 and false.
+### Approach & Efficiency
+Big O
+  - Time: O(n * m * e)
+  - Additional Space: O(1)
+Time was a bit difficult to figure out because I had 3 loops all nested. For each element in the array (n), I'm looping
+through every vertex (m) in the graph and for each vertex, I'm looping through their edges(e).
+Space also took some research (from Ed) because I was making a new Set from Java's built in keySet() method which, it
+turns out, doesn't create new data points.
