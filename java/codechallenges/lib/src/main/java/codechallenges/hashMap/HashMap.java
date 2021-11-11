@@ -29,8 +29,8 @@ public class HashMap<K, V> {
       throw new IllegalArgumentException("Key must be unique");
     }
     int hashCode = hash(key);
-    LinkedList linkedList = bucketArrayList.get(hashCode);
-    HashMapPair keyValuePair = new HashMapPair(key, value);
+    LinkedList<HashMapPair<K,V>> linkedList = bucketArrayList.get(hashCode);
+    HashMapPair<K,V> keyValuePair = new HashMapPair<>(key, value);
     linkedList.add(keyValuePair);
   }
 
