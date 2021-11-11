@@ -62,6 +62,32 @@ public class Graph<T extends Comparable<? super T>> {
     return outputList;
   }
 
+  List<Vertex<T>> depthFirst(Vertex<T> startingVertex) {
+    List<Vertex<T>> outputList = new ArrayList<>();
+    Stack<Vertex> vertexStack = new Stack<>();
+    HashMap<Vertex<T>, Integer> visitedVertices = new HashMap<>();
+
+    vertexStack.push(startingVertex);
+    while (!vertexStack.empty()) {
+      Vertex<T> currentVertex = vertexStack.peek();
+      vertexStack.pop();
+
+      if(!visitedVertices.containsKey(currentVertex)) {
+        outputList.add(currentVertex);
+        visitedVertices.put(currentVertex, 0);
+      }
+      List<Edge<T>> edgeList = getNeighbors(currentVertex);
+      for (Edge<T> edge : edgeList) {
+        Vertex<T> neighborVertex = edge.destination;
+        if (!visitedVertices.containsKey(neighborVertex)) {
+          vertexStack.push(neighborVertex);
+        }
+      }
+    }
+    System.out.println(outputList);
+    return outputList;
+  }
+
   String businessTrip(Graph<T> graph, String[] cityNames) {
     int totalCost = 0;
     boolean isDirectFlight = false;

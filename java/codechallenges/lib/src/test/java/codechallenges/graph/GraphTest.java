@@ -111,4 +111,39 @@ public class GraphTest {
     assertEquals("false, $0", sut.businessTrip(sut, testArray4));
     System.out.println(sut.businessTrip(sut, testArray4));
   }
+
+  @Test
+  void graphDepthFirstTest() {
+    Graph<String> sut = new Graph<>();
+
+    Vertex<String> aNode = sut.addNode("A");
+    Vertex<String> bNode = sut.addNode("B");
+    Vertex<String> cNode = sut.addNode("C");
+    Vertex<String> dNode = sut.addNode("D");
+    Vertex<String> eNode = sut.addNode("E");
+    Vertex<String> fNode = sut.addNode("F");
+    Vertex<String> gNode = sut.addNode("G");
+    Vertex<String> hNode = sut.addNode("H");
+
+    sut.addEdge(aNode, bNode, 0);
+    sut.addEdge(bNode, aNode, 0);
+    sut.addEdge(bNode, dNode, 0);
+    sut.addEdge(dNode, bNode, 0);
+    sut.addEdge(aNode, dNode, 0);
+    sut.addEdge(dNode, aNode, 0);
+    sut.addEdge(bNode, cNode, 0);
+    sut.addEdge(cNode, bNode, 0);
+    sut.addEdge(cNode, gNode, 0);
+    sut.addEdge(gNode, cNode, 0);
+    sut.addEdge(dNode, eNode, 0);
+    sut.addEdge(eNode, dNode, 0);
+    sut.addEdge(dNode, fNode, 0);
+    sut.addEdge(fNode, dNode, 0);
+    sut.addEdge(dNode, hNode, 0);
+    sut.addEdge(hNode, dNode, 0);
+    sut.addEdge(fNode, hNode, 0);
+    sut.addEdge(hNode, fNode, 0);
+
+    sut.depthFirst(aNode);
+  }
 }
