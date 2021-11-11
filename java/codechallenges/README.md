@@ -314,3 +314,25 @@ Time was a bit difficult to figure out because I had 3 loops all nested. For eac
 through every vertex (m) in the graph and for each vertex, I'm looping through their edges(e).
 Space also took some research (from Ed) because I was making a new Set from Java's built in keySet() method which, it
 turns out, doesn't create new data points.
+
+## Code Challenge 38
+### Challenge Summary
+Write the following method for the Graph class:
+  - Name: Depth first
+  - Arguments: Node (Starting point of search)
+  - Return: A collection of nodes in their pre-order depth-first traversal order
+  - Program output: Display the collection
+### Whiteboard Process
+  ![Graph Diagram](https://codefellows.github.io/common_curriculum/data_structures_and_algorithms/Code_401/class-38/Day28Example.PNG)
+> The algorithm for a depth first traversal is as follows:
+> 1. `Push` the root node into the stack
+> 2. Start a while loop while the stack is not empty
+> 3. `Peek` at the top node in the stack
+> 4. If the top node has unvisited children, mark the top node as visited, and then `Push` any unvisited children back into the stack.
+> 5. If the top node does not have any unvisited children, `Pop` that node off the stack.
+> 6. Repeat until the stack is empty.
+### Approach & Efficiency
+Big O
+  - Time - O(n * m), n = number of vertices, m = number of edges.
+  - Additional Space - O(n), created a list and a hashmap to hold every visited vertex.
+
