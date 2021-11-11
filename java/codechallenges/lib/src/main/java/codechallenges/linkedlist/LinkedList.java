@@ -1,16 +1,16 @@
 package codechallenges.linkedlist;
 
 public class LinkedList<T> {
-  Node head = null;
+  Node<T> head = null;
 
   public void insert(T value) {
-    Node newNode = new Node(value);
+    Node<T> newNode = new Node<>(value);
     newNode.next = this.head;
     this.head = newNode;
   }
 
   public boolean includes(T searchValue) {
-    Node currentNode = this.head;
+    Node<T> currentNode = this.head;
     while (currentNode != null) {
       if (currentNode.value.equals(searchValue)) {
         return true;
@@ -22,7 +22,7 @@ public class LinkedList<T> {
 
   @Override
   public String toString() {
-    Node currentNode = this.head;
+    Node<T> currentNode = this.head;
     String stringLL = "";
     while (currentNode != null) {
       stringLL = stringLL + "{ " + currentNode.value + " } -> ";
@@ -33,12 +33,12 @@ public class LinkedList<T> {
   }
 
   public void append(T newValue) {
-    Node newNode = new Node(newValue);
+    Node<T> newNode = new Node<>(newValue);
     newNode.next = null;
     if (this.head == null) {
       this.head = newNode;
     } else {
-      Node currentNode = this.head;
+      Node<T> currentNode = this.head;
       while (currentNode.next != null) {
         currentNode = currentNode.next;
       }
@@ -46,9 +46,9 @@ public class LinkedList<T> {
     }
   }
 
-  public void insertBefore(int nextValue, int newValue) {
-    Node newNode = new Node(newValue);
-    Node currentNode = this.head;
+  public void insertBefore(T nextValue, T newValue) {
+    Node<T> newNode = new Node<>(newValue);
+    Node<T> currentNode = this.head;
     while (currentNode.next != null) {
       if (currentNode.next.value.equals(nextValue)) {
         newNode.next = currentNode.next;
@@ -60,9 +60,9 @@ public class LinkedList<T> {
     }
   }
 
-  public void insertAfter (int beforeValue, int newValue) {
-    Node newNode = new Node(newValue);
-    Node currentNode = this.head;
+  public void insertAfter (T beforeValue, T newValue) {
+    Node<T> newNode = new Node<>(newValue);
+    Node<T> currentNode = this.head;
     while (currentNode.next != null) {
       if (currentNode.value.equals(beforeValue)) {
         newNode.next = currentNode.next;
@@ -73,7 +73,7 @@ public class LinkedList<T> {
   }
 
   public int listSize() {
-    Node currentNode = this.head;
+    Node<T> currentNode = this.head;
     int listSize = 0;
     while (currentNode != null) {
       listSize++;
@@ -85,7 +85,7 @@ public class LinkedList<T> {
   public T kthFromEnd (int k) {
     int listSize = this.listSize();
     int index = listSize - 1 - k;
-    Node currentNode = this.head;
+    Node<T> currentNode = this.head;
     if (index < 0 ) {
       throw new IllegalArgumentException("The index you are looking for is greater than the length of the list");
     }
@@ -99,13 +99,13 @@ public class LinkedList<T> {
       }
     }
     //maybe broke after convert to generic T
-    return (T) currentNode.value;
+    return currentNode.value;
   }
 
-  public static LinkedList zipLists(LinkedList list1, LinkedList list2) {
-    LinkedList newList = new LinkedList();
-    Node currentNode1 = list1.head;
-    Node currentNode2 = list2.head;
+  public LinkedList<T> zipLists(LinkedList<T> list1, LinkedList<T> list2) {
+    LinkedList<T> newList = new LinkedList<>();
+    Node<T> currentNode1 = list1.head;
+    Node<T> currentNode2 = list2.head;
     while (currentNode1 != null || currentNode2 != null) {
       if (currentNode1 != null) {
         newList.append(currentNode1.value);
@@ -119,11 +119,11 @@ public class LinkedList<T> {
     return newList;
   }
 
-  public static LinkedList reverseList(LinkedList list) {
-    Node previousNode = null;
-    Node currentNode = list.head;
+  public LinkedList<T> reverseList(LinkedList<T> list) {
+    Node<T> previousNode = null;
+    Node<T> currentNode = list.head;
     while (currentNode != null) {
-      Node nextNode = currentNode.next;
+      Node<T> nextNode = currentNode.next;
       currentNode.next = previousNode;
       previousNode = currentNode;
       currentNode = nextNode;

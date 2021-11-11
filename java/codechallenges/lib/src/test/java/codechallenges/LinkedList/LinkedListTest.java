@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class LinkedListTest {
   @Test void testLL() {
-    LinkedList newLL = new LinkedList();
+    LinkedList<Integer> newLL = new LinkedList<>();
     newLL.insert(5);
     newLL.insert(4);
     newLL.insert(3);
@@ -38,7 +38,7 @@ public class LinkedListTest {
   }
 
   @Test void kthFromEndTest() {
-    LinkedList newLL = new LinkedList();
+    LinkedList<Integer> newLL = new LinkedList<>();
     newLL.insert(5);
     newLL.insert(4);
     newLL.insert(3);
@@ -53,32 +53,32 @@ public class LinkedListTest {
   }
 
   @Test void zipListTest() {
-    LinkedList list1 = new LinkedList();
+    LinkedList<Integer> list1 = new LinkedList<>();
     list1.insert(3);
     list1.insert(2);
     list1.insert(1);
-    LinkedList list2 = new LinkedList();
+    LinkedList<Integer> list2 = new LinkedList<>();
     list2.insert(8);
     list2.insert(7);
     list2.insert(6);
     list2.insert(5);
     list2.insert(4);
 
-    LinkedList newLL = LinkedList.zipLists(list1, list2);
+    LinkedList<Integer> newLL = list1.zipLists(list1, list2);
     String output = newLL.toString();
 
     assertEquals("{ 1 } -> { 4 } -> { 2 } -> { 5 } -> { 3 } -> { 6 } -> { 7 } -> { 8 } -> NULL", output);
   }
 
   @Test void reverseListTest() {
-    LinkedList list1 = new LinkedList();
+    LinkedList<Integer> list1 = new LinkedList();
     list1.insert(5);
     list1.insert(4);
     list1.insert(3);
     list1.insert(2);
     list1.insert(1);
 
-    String output = LinkedList.reverseList(list1).toString();
+    String output = list1.reverseList(list1).toString();
     assertEquals("{ 5 } -> { 4 } -> { 3 } -> { 2 } -> { 1 } -> NULL", output, "Reverse List Method fails");
   }
 
